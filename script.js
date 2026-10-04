@@ -1,3 +1,12 @@
+const birthdayAudio = document.getElementById('birthdayAudio');
+
+function playMusic() {
+  if (birthdayAudio) {
+    birthdayAudio.play().catch(error => {
+      console.log("Audio play failed:", error);
+    });
+  }
+}
 function triggerConfetti() {
   const container = document.getElementById('fx-container');
   const colors = ['#ef4444', '#f472b6', '#fbbf24', '#34d399', '#60a5fa'];
@@ -22,6 +31,7 @@ function triggerConfetti() {
 /* 1. Envelope Open */
 document.getElementById('envelopeBtn').addEventListener('click', function() {
   triggerConfetti();
+  playMusic();
   setTimeout(() => {
     document.getElementById('screen1').classList.remove('active');
     document.getElementById('screen2').classList.add('active');
